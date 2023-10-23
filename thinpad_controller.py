@@ -83,13 +83,17 @@ class ThinPadController:
     def clickCLK(self):
         sleep(self.delay)
         self.controller.position = self.clk_pos
-        self.controller.click(Button.left, 1)
+        self.controller.press(Button.left)
+        sleep(self.delay/2)
+        self.controller.release(Button.left)
 
 
     def clickRST(self):
         sleep(self.delay)
         self.controller.position = self.rst_pos
-        self.controller.click(Button.left, 1)
+        self.controller.press(Button.left)
+        sleep(self.delay/2)
+        self.controller.release(Button.left)
 
 
 if __name__ == "__main__":
