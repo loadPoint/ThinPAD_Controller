@@ -28,16 +28,20 @@ def Binary_Instr(TYPE: Instr, RD: str, RS1: str, RS2: str) -> str:
 
 def POKE_Instr(imm: int, RD: str) -> str:
     immstr = '{:016b}'.format(imm)
-    return immstr + "0000" + RD + "0001" + "010"
+    if len(immstr) == 16:
+        return immstr + "0000" + RD + "0001" + "010"
+    else:
+        raise Exception("Imm number is too long")
 
 def PEEK_Instr(imm: int, RD: str) -> str:
     immstr = '{:016b}'.format(imm)
-    return immstr + "0000" + RD + "0010" + "010"
+    if len(immstr) == 16:
+        return immstr + "0000" + RD + "0010" + "010"
+    else:
+        raise Exception("Imm number is too long")
 
 if __name__ == "__main__":
     tc = ThinPadController()
     # TODO: 写你自己的操作
-    
-    sleep(10)
     # TOTO: 结束自主操作部分
     tc.resetDipSwitch()

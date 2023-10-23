@@ -62,7 +62,7 @@ class ThinPadController:
                 return False
         sleep(self.delay)
         if len(value) != 32:
-            raise Exception(f"Value length must be 32")
+            raise Exception(f"Value length must be 32, but found {len(value)}")
         
         for i in range(32):
             if judgeNeed(value[i],self.dip_status[i]):
