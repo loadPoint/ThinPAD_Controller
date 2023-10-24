@@ -72,28 +72,30 @@ class ThinPadController:
         self.setDipSwToValue("00000000000000000000000000000000")
 
     def clickButton(self, index):
-        sleep(self.delay)
         if 0 <= index < 4:
             self.controller.position = self.button_pos[index]
             self.controller.click(Button.left, 1)
         else:
             raise Exception(f"Error dip index #{index}")
-        
+        sleep(self.delay)
 
     def clickCLK(self):
-        sleep(self.delay)
         self.controller.position = self.clk_pos
         self.controller.press(Button.left)
         sleep(self.delay/2)
         self.controller.release(Button.left)
-
+        sleep(self.delay)
 
     def clickRST(self):
-        sleep(self.delay)
         self.controller.position = self.rst_pos
         self.controller.press(Button.left)
         sleep(self.delay/2)
         self.controller.release(Button.left)
+        sleep(self.delay)
+
+    def pause(self):
+        a = input("Press enter to continue ...")
+        return a
 
 
 if __name__ == "__main__":
