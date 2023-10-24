@@ -65,7 +65,7 @@ class ThinPadController:
             raise Exception(f"Value length must be 32, but found {len(value)}")
         
         for i in range(32):
-            if judgeNeed(value[i],self.dip_status[i]):
+            if judgeNeed(value[31 - i],self.dip_status[i]):
                 self.__clickDipSwitch__(i)
             
     def resetDipSwitch(self):
